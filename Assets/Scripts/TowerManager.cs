@@ -5,11 +5,13 @@ using System.Collections.Generic;
 
 public class TowerPlacementManager : MonoBehaviour
 {
-    public Tilemap towerTilemap;
+    public Tilemap buildableTilemap;
     public GameObject towerPrefab;
     private Camera mainCamera;
 
-    private HashSet<Vector3Int> occupiedPositions = new HashSet<Vector3Int>();
+
+    public HashSet<Vector3Int> occupiedTiles = new HashSet<Vector3Int>();
+
 
     void Start()
     {
@@ -18,28 +20,38 @@ public class TowerPlacementManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)) // Left-click
+        if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Mouse clicked");
 
             Vector3 mouseWorldPos = mainCamera.ScreenToWorldPoint(Input.mousePosition);
-            Vector3Int cellPos = towerTilemap.WorldToCell(mouseWorldPos);
-            Debug.Log("Clicked Cell: " + cellPos);
+            mouseWorldPos.z = 0f;  // flatten z coordinate, cuz of isometric z as y
 
-            if (towerTilemap.HasTile(cellPos))
+            // clicked cell
+            Vector3Int cellPos = buildableTilemap.WorldToCell(mouseWorldPos);   
+            cellPos.z = 0;
+
+            Debug.Log("Clicked Cell: " + cellPos);
+            Debug.Log("Using tilemap: " + buildableTilemap.name);
+
+            if (buildableTilemap.HasTile(cellPos))
             {
                 Debug.Log("Valid buildable tile");
 
-                if (!occupiedPositions.Contains(cellPos))
+                TowerBlock block = PathManager.Instance.GetBlockFromCell(cellPos);
+
+                if (block != null && !block.isOccupied)
                 {
                     Debug.Log("Placing tower");
-                    Vector3 placePos = towerTilemap.GetCellCenterWorld(cellPos);
-                    Instantiate(towerPrefab, placePos, Quaternion.identity);
-                    occupiedPositions.Add(cellPos);
+                    // Place tower at center
+                    Vector3Int center = block.center;
+                    Vector3 worldPos = buildableTilemap.GetCellCenterWorld(center);
+                    Instantiate(towerPrefab, worldPos, Quaternion.identity);
+                    PathManager.Instance.OccupyBlock(block, occupiedTiles);
                 }
                 else
                 {
-                    Debug.Log("Tile already occupied");
+                    Debug.Log("Block already occupied");
                 }
             }
             else
@@ -48,4 +60,15 @@ public class TowerPlacementManager : MonoBehaviour
             }
         }
     }
+    
+    private Vector3Int GetBlockCenter(Vector3Int clicked)
+    {
+        // Snap the cell coordinates to the nearest multiple of 3
+        int centerX = Mathf.FloorToInt((clicked.x + 1) / 3f) * 3;
+        int centerY = Mathf.FloorToInt((clicked.y + 1) / 3f) * 3;
+        return new Vector3Int(centerX, centerY, 0);
+    }
+
+
 }
+

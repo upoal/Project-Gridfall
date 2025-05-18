@@ -835,7 +835,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pathTiles: []
+  towerTiles: []
   pathTilemap: {fileID: 157637364}
+  towerTilemap: {fileID: 1001008893}
 --- !u!4 &179568051
 Transform:
   m_ObjectHideFlags: 0
@@ -1297,7 +1299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae4b730fdf70c0c45bc161a0d5ce5657, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerTilemap: {fileID: 1001008893}
+  buildableTilemap: {fileID: 1001008893}
   towerPrefab: {fileID: 4321580112089800750, guid: eab24e9745ecba34899156f6911becd5, type: 3}
 --- !u!1 &1001008890
 GameObject:
