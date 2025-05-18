@@ -19,7 +19,8 @@ public class TowerPlacementManager : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        /*
         if (Input.GetMouseButtonDown(0))
         {
             Debug.Log("Mouse clicked");
@@ -28,7 +29,7 @@ public class TowerPlacementManager : MonoBehaviour
             mouseWorldPos.z = 0f;  // flatten z coordinate, cuz of isometric z as y
 
             // clicked cell
-            Vector3Int cellPos = buildableTilemap.WorldToCell(mouseWorldPos);   
+            Vector3Int cellPos = buildableTilemap.WorldToCell(mouseWorldPos);
             cellPos.z = 0;
 
             Debug.Log("Clicked Cell: " + cellPos);
@@ -57,18 +58,6 @@ public class TowerPlacementManager : MonoBehaviour
             else
             {
                 Debug.Log("Not a buildable tile");
-            }
-        }
+            }*/
     }
-    
-    private Vector3Int GetBlockCenter(Vector3Int clicked)
-    {
-        // Snap the cell coordinates to the nearest multiple of 3
-        int centerX = Mathf.FloorToInt((clicked.x + 1) / 3f) * 3;
-        int centerY = Mathf.FloorToInt((clicked.y + 1) / 3f) * 3;
-        return new Vector3Int(centerX, centerY, 0);
-    }
-
-
 }
-

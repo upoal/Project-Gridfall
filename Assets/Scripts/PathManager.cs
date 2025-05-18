@@ -12,6 +12,10 @@ public class PathManager : MonoBehaviour
     public List<TowerBlock> towerBlocks = new List<TowerBlock>();
 
 
+    public HashSet<Vector3Int> occupiedTiles = new HashSet<Vector3Int>();
+
+
+
 
     public Tilemap pathTilemap;
 
