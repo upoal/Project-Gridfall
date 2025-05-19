@@ -11,7 +11,7 @@ public class TowerDragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, 
     public void OnBeginDrag(PointerEventData eventData)
     {
         draggingTower = Instantiate(towerPrefab);
-        draggingTower.GetComponent<Collider2D>().enabled = false; // So it doesn't block raycasts
+        // draggingTower.GetComponent<Collider2D>().enabled = false; // So it doesn't block raycasts
         draggingTower.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 0.5f); // Transparent
     }
 
