@@ -4,23 +4,24 @@ using System;
 
 public class TickSystem : MonoBehaviour
 {
-    public static Action OnTick;
-    public float tickInterval = 0.3f; // 1 second per tick
-    private bool isTicking = false;
+    public static event Action OnTick;
+
+    private float tickInterval = 1f; // 1 second
+    private float timer;
 
     public void StartTicking()
     {
-        if (!isTicking)
-            StartCoroutine(TickLoop());
+        enabled = true;
     }
 
-    IEnumerator TickLoop()
+    void Update()
     {
-        isTicking = true;
-        while (true)
+        timer += Time.deltaTime;
+        if (timer >= tickInterval)
         {
-            yield return new WaitForSeconds(tickInterval);
+            timer -= tickInterval;
             OnTick?.Invoke();
         }
     }
 }
+

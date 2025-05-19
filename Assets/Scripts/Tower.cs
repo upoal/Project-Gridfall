@@ -1,16 +1,45 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public int damage;
+    public float attackRange;
+    
+    private void OnEnable()
     {
-        
+        TickSystem.OnTick += TryAttackEnemy;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnDisable()
     {
-        
+        TickSystem.OnTick -= TryAttackEnemy;
     }
+
+   void TryAttackEnemy()
+    {
+        if (EnemyManager.Instance == null)
+        {
+            Debug.LogWarning("EnemyManager.Instance is null");
+            return;
+        }
+
+        var enemies = EnemyManager.Instance.GetAllEnemies();
+
+        foreach (Enemy enemy in enemies)
+        {
+            float distance = Vector3.Distance(transform.position, enemy.transform.position);
+            Debug.Log($"Enemy at {enemy.transform.position}, Tower at {transform.position}, Distance: {distance}, Range: {attackRange}");
+
+            if (distance <= attackRange)
+            {
+                Debug.Log("Attacking enemy!");
+                enemy.TakeDamage(damage);
+                break;
+            }
+        }
+    }
+
+
 }
+

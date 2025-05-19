@@ -11,6 +11,8 @@ public class PathManager : MonoBehaviour
     public List<Vector3Int> towerTiles = new List<Vector3Int>();
     public List<TowerBlock> towerBlocks = new List<TowerBlock>();
 
+    public List<TowerBlock> pathBlocks = new List<TowerBlock>();
+
 
     public HashSet<Vector3Int> occupiedTiles = new HashSet<Vector3Int>();
 

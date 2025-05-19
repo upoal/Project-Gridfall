@@ -26,6 +26,8 @@ public class EnemyMover : MonoBehaviour
         else
         {
             Debug.Log("Enemy reached the end!");
+            GameManager.Instance.ReduceLives(1);
+            Destroy(gameObject);
             TickSystem.OnTick -= OnTick;
         }
     }
