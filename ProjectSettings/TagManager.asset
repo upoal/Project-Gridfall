@@ -34,7 +34,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - UI Status Signifiers
   - 
   - 
   m_SortingLayers:
@@ -49,6 +49,9 @@ TagManager:
     locked: 0
   - name: TowerUnits
     uniqueID: 470051207
+    locked: 0
+  - name: UI StatusIdentifiers
+    uniqueID: 2200845857
     locked: 0
   m_RenderingLayers:
   - Default

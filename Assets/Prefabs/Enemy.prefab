@@ -115,4 +115,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   currentHealth: 10
+  healthBarPrefab: {fileID: 2470395251246080508, guid: 5122b390c38e5034b9d232487ba02a88, type: 3}
   currentTilePosition: {x: 0, y: 0, z: 0}

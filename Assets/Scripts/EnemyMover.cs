@@ -22,6 +22,7 @@ public class EnemyMover : MonoBehaviour
         {
             Vector3 nextPos = PathManager.Instance.GetWorldPos(currentIndex);
             transform.position = nextPos;
+            Debug.Log("Enemy moved to: " + nextPos);
         }
         else
         {
