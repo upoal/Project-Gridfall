@@ -1,12 +1,12 @@
 using UnityEngine;
-using System.Collections;
 using System;
 
 public class TickSystem : MonoBehaviour
 {
-    public static event Action OnTick;
+    public static event Action OnTickMovePhase;
+    public static event Action OnTickAttackPhase;
 
-    private float tickInterval = 1f; // 1 second
+    private float tickInterval = 1f; 
     private float timer;
 
     public void StartTicking()
@@ -20,8 +20,12 @@ public class TickSystem : MonoBehaviour
         if (timer >= tickInterval)
         {
             timer -= tickInterval;
-            OnTick?.Invoke();
+
+            // Move phase first
+            OnTickMovePhase?.Invoke();
+
+            // Attack phase after
+            OnTickAttackPhase?.Invoke();
         }
     }
 }
-

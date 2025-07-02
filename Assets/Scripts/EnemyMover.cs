@@ -7,12 +7,12 @@ public class EnemyMover : MonoBehaviour
     void Start()
     {
         transform.position = PathManager.Instance.GetWorldPos(currentIndex);
-        TickSystem.OnTick += OnTick;
+        TickSystem.OnTickMovePhase += OnTick;
     }
 
     void OnDestroy()
     {
-        TickSystem.OnTick -= OnTick;
+        TickSystem.OnTickMovePhase -= OnTick;
     }
 
     void OnTick()
@@ -29,7 +29,7 @@ public class EnemyMover : MonoBehaviour
             Debug.Log("Enemy reached the end!");
             GameManager.Instance.ReduceLives(1);
             Destroy(gameObject);
-            TickSystem.OnTick -= OnTick;
+            TickSystem.OnTickMovePhase -= OnTick;
         }
     }
 }

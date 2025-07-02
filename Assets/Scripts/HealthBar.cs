@@ -21,7 +21,7 @@ public class HealthBar : MonoBehaviour
     {
         if (target != null)
         {   
-            Debug.Log("Position: " + target.position + " Offset: " + offset);
+            // Debug.Log("Position: " + target.position + " Offset: " + offset);
             transform.position = target.position + offset;
             transform.forward = Camera.main.transform.forward; // Always face camera
         }

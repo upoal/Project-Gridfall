@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28793ec65817c504888eaae6ab365b64, type: 3}
+  m_Name: BasicCannonData
+  m_EditorClassIdentifier: 
+  towerName: Basic Cannon
+  energyCost: 2
+  damage: 2
+  attackRangeInTiles: 5
+  icon: {fileID: 21300000, guid: 0a0b70cfd52e574419e377163923b946, type: 3}
+  towerPrefab: {fileID: 4321580112089800750, guid: eab24e9745ecba34899156f6911becd5, type: 3}

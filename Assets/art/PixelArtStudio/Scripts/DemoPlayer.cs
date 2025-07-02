@@ -32,7 +32,8 @@ public class DemoPlayer : MonoBehaviour
             return;
         }
 
-        _animator = FindObjectOfType<Animator>();
+        _animator = FindFirstObjectByType<Animator>();
+
         if (_animator == null)
         {
             Debug.LogError("[DemoPlayer.cs] Can't find 'Animator' component in scene." +

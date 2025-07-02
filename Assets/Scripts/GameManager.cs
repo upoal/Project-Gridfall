@@ -13,7 +13,13 @@ public class GameManager : MonoBehaviour
     [Header("Lives System")]
     public int startingLives = 10;
     public int currentLives;
-    public Text livesText; 
+    public Text livesText;
+
+    [Header("Energy System")]
+    public int startingEnergy = 5;
+    public int currentEnergy;
+    public Text energyText;
+
 
     void Awake()
     {
@@ -38,13 +44,15 @@ public class GameManager : MonoBehaviour
 
         // Initialize lives
         currentLives = startingLives;
+        currentEnergy = startingEnergy;
         UpdateLivesUI();
+        UpdateEnergyUI();
     }
 
     void StartWave()
     {
         Debug.Log("Play button clicked — starting wave");
-        enemySpawner.SpawnEnemy();
+        enemySpawner.StartWave(5, 2); // 5 enemies in the wave
         tickSystem.StartTicking();
         playButton.interactable = false;
     }
@@ -67,6 +75,22 @@ public class GameManager : MonoBehaviour
         if (livesText != null)
         {
             livesText.text = currentLives.ToString();
+        }
+    }
+
+    public void ReduceEnergy(int amount)
+    {
+        currentEnergy -= amount;
+        Debug.Log("GM:Energy reduced by " + amount + ". Current energy: " + currentEnergy);
+        if (currentEnergy < 0) currentEnergy = 0;
+        UpdateEnergyUI();
+    }
+
+    void UpdateEnergyUI()
+    {
+        if (energyText != null)
+        {
+            energyText.text = currentEnergy.ToString();
         }
     }
 }

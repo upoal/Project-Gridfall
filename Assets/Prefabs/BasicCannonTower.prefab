@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 910336452245633924}
   - component: {fileID: 3687830839607786142}
   m_Layer: 7
-  m_Name: Tower
+  m_Name: BasicCannonTower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,7 +78,7 @@ SpriteRenderer:
   m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 0a0b70cfd52e574419e377163923b946, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.90364254, b: 0.48584908, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -100,5 +100,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 062a4e1e52d103b4cba1b3c2d7e3ef61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 2
-  attackRange: 5
+  data: {fileID: 11400000, guid: 3f9a0c40b6200164b926226a1ddade35, type: 2}
+  bulletPrefab: {fileID: 2940952120823246456, guid: cef119dd7e671a94fb5671a20c809067, type: 3}
