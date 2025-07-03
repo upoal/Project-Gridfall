@@ -15,6 +15,6 @@ MonoBehaviour:
   towerName: Basic Cannon
   energyCost: 2
   damage: 2
-  attackRangeInTiles: 5
+  attackRangeInTiles: 12
   icon: {fileID: 21300000, guid: 0a0b70cfd52e574419e377163923b946, type: 3}
   towerPrefab: {fileID: 4321580112089800750, guid: eab24e9745ecba34899156f6911becd5, type: 3}
