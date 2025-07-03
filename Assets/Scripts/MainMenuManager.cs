@@ -7,7 +7,7 @@ public class MainMenuManager : MonoBehaviour
     {
         Debug.Log("Play button pressed");
         // Load your game scene - replace with actual scene name
-        SceneManager.LoadScene("DemoLvl");
+        SceneManager.LoadScene("TransitionScene");
     }
 
     public void QuitGame()
