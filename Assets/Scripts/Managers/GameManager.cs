@@ -49,7 +49,7 @@ public class GameManager : MonoBehaviour
         UpdateEnergyUI();
     }
 
-    void StartWave()
+    public void StartWave()
     {
         Debug.Log("Play button clicked — starting wave");
         enemySpawner.StartWave(5, 2); // 5 enemies in the wave
